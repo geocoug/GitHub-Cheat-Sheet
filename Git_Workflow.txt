@@ -1,0 +1,89 @@
+SOURCES: https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+	 https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html
+=============================================================================================================
+INITIALIZE
+1) Launch Git Bash
+2) Navigate to project directory
+3) initialize git repository in the folder root: git init
+4) create new file in directory: touch filename.extension
+5) list files in root: ls
+6) check which files git recognizes: git status
+=============================================================================================================
+STAGING:
+A commit is a record of what files you have changed since the last time you made a commit. 
+Essentially, you make changes to your repo (for example, adding a file or modifying one) 
+and then tell git to put those files into a commit.
+Commits make up the essence of your project and allow you to go back to the state of a project at any point.
+
+So, how do you tell git which files to put into a commit? 
+This is where the staging environment or index come in. 
+When you make changes to your repo, git notices that a file has changed but 
+won't do anything with it (like adding it in a commit).
+
+To add a file to a commit, you first need to add it to the staging environment. 
+To do this, you can use the git add <filename> command.
+
+Once you've used the git add command to add all the files you want to the staging environment, 
+you can then tell git to package them into a commit using the git commit command. 
+Note: The staging environment, also called 'staging', is the new preferred term for this, 
+but you can also see it referred to as the 'index'.
+
+1) Add files to the staging environment: git add filename.extension
+2) Check staging environment for new files: git status
+=============================================================================================================
+COMMIT LOCALLY:
+1) run: git commit -m "Your message about the commit"
+=============================================================================================================
+BRANCHES:
+Say you want to make a new feature but are worried about making changes to the main project 
+while developing the feature. This is where git branches come in. 
+
+Branches allow you to move back and forth between 'states' of a project. 
+For instance, if you want to add a new page to your website you can create a new branch just 
+for that page without affecting the main part of the project. Once you're done with the page, 
+you can merge your changes from your branch into the master branch. 
+When you create a new branch, Git keeps track of which commit your branch 'branched' off of, 
+so it knows the history behind all the files. 
+
+1) run: git checkout -b <my branch name>
+2) Show list of branches: git branch
+=============================================================================================================
+COMMIT TO GITHUB
+1) Create new repo on GitHub
+2) run: git remote add origin <url produced on github for new repo>
+3) run: git push -u origin master
+=============================================================================================================
+PUSH A BRANCH TO GITHUB
+1) run: git push origin <my-new-branch>
+
+You might be wondering what that "origin" word means in the command above. 
+What happens is that when you clone a remote repository to your local machine, git creates an alias for you. 
+In nearly all cases this alias is called "origin." It's essentially shorthand for the remote repository's URL. 
+So, to push your changes to the remote repository, 
+you could've used either the command: git push git@github.com:git/git.git yourbranchname or git push origin yourbranchname
+=============================================================================================================
+PULL REQUEST
+A pull request (or PR) is a way to alert a repo's owners that you want to make some changes to their code. 
+It allows them to review the code and make sure it looks good before putting your changes on the master branch.
+=============================================================================================================
+GET CHANGES ON GITHUB BACK TO YOUR PC
+1) run: git pull origin master
+2) check all new commits: git log
+=============================================================================================================
+VIEW DIFFERENCES
+1) run: git diff
+=============================================================================================================
+REMOVE A BRANCH
+LOCALLY:
+1) run: git branch -D <branch_name>
+OR run: git branch -d <branch_name>
+REMOTE:
+1) run: git push <remote_name> --delete <branch_name>
+ie: git push origin --delete test-branch
+=============================================================================================================
+=============================================================================================================
+=============================================================================================================
+CONFIGURE GIT
+1) Check configuration of Git on local PC: git config --global --list
+2) Change your local credentials (username): git config --global user.name "yourname"
+3) Change your local credentials (email): git congif --global user.email "youremail"
